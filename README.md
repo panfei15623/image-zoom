@@ -45,29 +45,29 @@ navigator.userAgent.indexOf(浏览器名) > 0
 /*** 判断IE8/IE9*/
 
 var judgeIE = function() {
-if(navigator.userAgent.indexOf("MSIE") > 0) {
-  if(navigator.userAgent.indexOf("MSIE 6.0") > 0) {}
-  if(navigator.userAgent.indexOf("MSIE 7.0") > 0) {}
+if(navigator.userAgent.indexOf("MSIE") > 0) {      
+  if(navigator.userAgent.indexOf("MSIE 6.0") > 0) {}     
+  if(navigator.userAgent.indexOf("MSIE 7.0") > 0) {}      
 
-  if(navigator.userAgent.indexOf("MSIE 8.0") > 0) {
-      console.log("IE8");
-  }
+  if(navigator.userAgent.indexOf("MSIE 8.0") > 0) {      
+      console.log("IE8");     
+  }     
 
-  if(navigator.userAgent.indexOf("MSIE 9.0") > 0) {
-      console.log("IE9");
-  }
- }
-};
+  if(navigator.userAgent.indexOf("MSIE 9.0") > 0) {     
+      console.log("IE9");     
+  }     
+ }     
+};     
 
 (3)判断浏览器是否支持DOM2级事件，IE8不支持，IE8以上支持        
    isIEgt8 = document.implementation.hasFeature("MouseEvents","2.0");
    
- 3、IE8不支持CSS3的rotate图片旋转属性
- 解决办法：
- 给id添加filter属性，ie8_deg的值为0，1，2，3  分别对应90度，180度，270度，360度
- $("#rotate-btn").bind("click", function() {
-     ie8_deg = (ie8_deg + 1) % 4;
-     $img.get(0).style.filter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation='+ ie8_deg + ')';
+ 3、IE8不支持CSS3的rotate图片旋转属性     
+ 解决办法：     
+ 给id添加filter属性，ie8_deg的值为0，1，2，3  分别对应90度，180度，270度，360度      
+ $("#rotate-btn").bind("click", function() {     
+     ie8_deg = (ie8_deg + 1) % 4;      
+     $img.get(0).style.filter = 'progid:DXImageTransform.Microsoft.BasicImage(rotation='+ ie8_deg + ')';     
  });
  
  4、滚轮事件
@@ -75,12 +75,12 @@ if(navigator.userAgent.indexOf("MSIE") > 0) {
  事件属性不同，firefox使用detail，其余四类使用wheelDelta;
  取值上不同，代表含义一致，detail与wheelDelta只各取两个值，detail只取±3，wheelDelta只取±120
     
-  $imgContainer.bind("mousewheel", zoomImageOnMouse).bind("DOMMouseScroll", zoomImageOnMouse);
+  $imgContainer.bind("mousewheel", zoomImageOnMouse).bind("DOMMouseScroll", zoomImageOnMouse);    
     
-   function zoomImageOnMouse(event) {
-       //firefox使用detail，其余四类使用wheelDelta,Firefox向上滚 < 0，其他四个浏览器相反。
-       var wheel = event.originalEvent.wheelDelta || -event.originalEvent.detail;
-       wheel > 0 ? IMG.zoomIn() : IMG.zoomOut();
+   function zoomImageOnMouse(event) {      
+       //firefox使用detail，其余四类使用wheelDelta,Firefox向上滚 < 0，其他四个浏览器相反。     
+       var wheel = event.originalEvent.wheelDelta || -event.originalEvent.detail;     
+       wheel > 0 ? IMG.zoomIn() : IMG.zoomOut();     
    }
 
   
